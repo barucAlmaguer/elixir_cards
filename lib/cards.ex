@@ -18,4 +18,12 @@ defmodule Cards do
     # card in deck # also valid sintax
     Enum.member?(deck, card)
   end
+
+  # use like this:
+  # {hand, new_deck} = Cards.deal(deck, hand_size)
+  # This is called pattern matching
+  def deal(deck, hand_size) do
+    deck = Cards.shuffle(deck)
+    Enum.split(deck, hand_size)
+  end
 end
