@@ -26,4 +26,14 @@ defmodule Cards do
     deck = Cards.shuffle(deck)
     Enum.split(deck, hand_size)
   end
+
+  def save(deck, filename) do
+    binary = :erlang.term_to_binary(deck)
+    File.write(filename, binary)
+  end
+
+  def load(filename) do
+    {_, bin_data} = File.read(filename)
+    :erlang.binary_to_term(bin_data)
+  end
 end
