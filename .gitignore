@@ -25,3 +25,4 @@ cards-*.tar
 .elixir_ls/*
 .formatter.exs
 config/*
+*.udm
