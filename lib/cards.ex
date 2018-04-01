@@ -1,4 +1,11 @@
 defmodule Cards do
+  @moduledoc """
+    Provides methods for creating and handling a deck of cards
+  """
+
+  @doc """
+    Returns a list of string representing a deck of playing cards
+  """
   def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five"]
     suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
@@ -22,6 +29,18 @@ defmodule Cards do
   # use like this:
   # {hand, new_deck} = Cards.deal(deck, hand_size)
   # This is called pattern matching
+  @doc """
+    Divides a deck into a hand and the reminder of the Deck.
+    the `hand_size` argument indicates how many cards should
+    be in the hand.
+
+  ## Examples
+
+      iex> deck = Cards.create_deck()
+      iex> {hand, _deck} = Cards.deal(deck, 1)
+      iex> hand
+      ["Ace of Spades"]
+  """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
